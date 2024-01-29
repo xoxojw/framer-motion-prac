@@ -1,5 +1,14 @@
-import { motion, useMotionValue, useMotionValueEvent, useScroll, useTransform } from "framer-motion";
+import { Variants, motion, useMotionValue, useMotionValueEvent, useScroll, useTransform } from "framer-motion";
 import styled from "styled-components";
+
+const arrowVariants: Variants = {
+	start: { fill: "rgba(255, 255, 255, 0.3);", y: 15 },
+	end: {
+		fill: "rgba(255, 255, 255, 0.7)",
+		y: 0,
+		transition: { duration: 0.7, repeat: Infinity, repeatType: "reverse" },
+	},
+};
 
 const MotionValues = () => {
 	const x = useMotionValue(0);
@@ -9,9 +18,9 @@ const MotionValues = () => {
 		x,
 		xInput,
 		[
-			"linear-gradient(135deg,##5B63FB 0%,##45E9AD 100%)",
-			"linear-gradient(135deg,#9195A2 0%,#272839 100%)",
-			"linear-gradient(135deg,#FFDCA0 0%,#F66C6C 100%)"
+			"linear-gradient(90deg,##5B63FB 0%,##45E9AD 100%)",
+			"linear-gradient(110deg,#9195A2 0%,#272839 100%)",
+			"linear-gradient(90deg,#FFDCA0 0%,#F66C6C 100%)"
 		]
 	);
   
@@ -28,16 +37,27 @@ const MotionValues = () => {
 	return (
 		<BackGround style={{ background: gradient }}>
 			<ProgressBar style={{ scaleX: scrollYProgress }} />
-			<Box
-				drag="x"
-				dragSnapToOrigin
-				style={{ x, rotateZ }}
-			>
-				<p>Rotate me!😆</p>
-			</Box>
+			<Container>
+				<Box
+					drag="x"
+					dragSnapToOrigin
+					style={{ x, rotateZ }}
+				>
+					<p>Rotate me!😆</p>
+				</Box>
+				<AnglesDown
+					variants={arrowVariants}
+					initial="start"
+					animate="end"
+					xmlns="http://www.w3.org/2000/svg"
+					viewBox="0 0 448 512"
+				>
+					<path d="M246.6 470.6c-12.5 12.5-32.8 12.5-45.3 0l-160-160c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L224 402.7 361.4 265.4c12.5-12.5 32.8-12.5 45.3 0s12.5 32.8 0 45.3l-160 160zm160-352l-160 160c-12.5 12.5-32.8 12.5-45.3 0l-160-160c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L224 210.7 361.4 73.4c12.5-12.5 32.8-12.5 45.3 0s12.5 32.8 0 45.3z" />
+				</AnglesDown>
+			</Container>
 			<TouchDownTextContainer>
-        <p>🛬 Touch Down!</p>
-      </TouchDownTextContainer>
+				<p>🛬 Touch Down!</p>
+			</TouchDownTextContainer>
 		</BackGround>
 	);
 };
@@ -62,6 +82,16 @@ const ProgressBar = styled(motion.div)`
 	transform-origin: 0%;
 `
 
+const Container = styled.div`
+	display: flex;
+  justify-content: center;
+  align-items: center;
+	flex-direction: column;
+
+	margin-top: 10%;
+	gap: 50vh;
+`
+
 const Box = styled(motion.div)`
   width: 200px;
   height: 200px;
@@ -70,13 +100,10 @@ const Box = styled(motion.div)`
   cursor: grab;
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.06);
   overflow: hidden;
-  display: flex;
+
+	display: flex;
   justify-content: center;
   align-items: center;
-
-	flex-direction: column;
-
-	margin-top: 10%;
 
   p {
     font-size: 1.5rem;
@@ -90,6 +117,12 @@ const Box = styled(motion.div)`
     }
   }
 `;
+
+const AnglesDown = styled(motion.svg)`
+	width: 2rem;
+	height: 2rem;
+	fill: rgba(255, 255, 255, 0.3);
+`
 
 const TouchDownTextContainer = styled.div`
   padding: 3rem 0;

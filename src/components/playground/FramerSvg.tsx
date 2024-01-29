@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import styled from "styled-components";
 
-const PathIcon = () => {
+const FramerSvg = () => {
 	const icon = {
 		hidden: {
 			pathLength: 0,
@@ -14,11 +14,11 @@ const PathIcon = () => {
 	};
 	return (
 		<Container>
-			<Path
+			<Svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 100 100"
       className="item"
-    >
+			>
       <motion.path
         d="M0 100V0l50 50 50-50v100L75 75l-25 25-25-25z"
         variants={icon}
@@ -29,12 +29,12 @@ const PathIcon = () => {
           fill: { duration: 2, ease: [1, 0, 0.8, 1] }
         }}
       />
-    </Path>
+			</Svg>
 		</Container>
 	);
 };
 
-export default PathIcon;
+export default FramerSvg;
 
 const Container = styled.div`
 	width: 14rem;
@@ -46,7 +46,7 @@ const Container = styled.div`
 	background: rgba(255, 255, 255, 0.2);
 `;
 
-const Path = styled(motion.svg)`
+const Svg = styled(motion.svg)`
   width: 56%;
   overflow: visible;
   stroke: #fff;

@@ -3,7 +3,8 @@ import BasicAnimation from "components/playground/BasicAnimation";
 import VariantsPrac from "components/playground/VariantsPrac";
 import Gestures from "components/playground/Gestures";
 import Drag from "components/playground/Drag";
-import PathIcon from "components/playground/PathIcon";
+import FramerSvg from "components/playground/FramerSvg";
+import AppleSvg from "components/playground/AppleSvg";
 
 const Main = () => {
 	return (
@@ -13,7 +14,8 @@ const Main = () => {
 				<VariantsPrac />
 				<Gestures />
         <Drag />
-        <PathIcon />
+				<FramerSvg />
+				<AppleSvg />
 			</GridBox>
 		</Wrapper>
 	);
