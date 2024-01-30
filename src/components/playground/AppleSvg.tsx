@@ -2,10 +2,14 @@ import { motion } from "framer-motion";
 import styled from "styled-components";
 
 const svgVariants = {
-  start: { pathLength: 0, fill: "rgba(154, 181, 218, 0)" },
+  start: { pathLength: 0, fill: "rgba(255, 255, 255, 0)" },
   end: {
     pathLength: 1,
-    fill: "rgba(154, 181, 218, 1)",
+    fill: "rgb(255, 255, 255)",
+    transition: {
+      repeat: Infinity,
+      duration: 5,
+    }
   },
 }
 
@@ -49,6 +53,6 @@ const Container = styled.div`
 const Svg = styled(motion.svg)`
   width: 40%;
   overflow: visible;
-  stroke: rgb(154, 181, 218);
+  stroke: rgb(255, 255, 255);
   stroke-width: 3;
 `

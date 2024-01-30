@@ -30,6 +30,7 @@ const Navigation = () => {
         <NavTitle onClick={() => navigate('/')}>Framer-motion Playground</NavTitle>
         <NavLists variants={childrenVars}>
           <li onClick={() => navigate('/motionvalues')}>Motion Values</li>
+          <li onClick={() => navigate('/animatepresence')}>AnimationPresence</li>
         </NavLists>
       </NavContainer>
     </Wrapper>
@@ -39,11 +40,13 @@ const Navigation = () => {
 export default Navigation;
 
 const Wrapper = styled(motion.nav)`
-  width: 100%;
+  width: 100vw;
   padding: 3rem 0;
   margin: 0 auto;
   position: fixed; // sticky
   top: 0;
+  left: 0;
+  right: 0;
 
   backdrop-filter: blur(8px);
 

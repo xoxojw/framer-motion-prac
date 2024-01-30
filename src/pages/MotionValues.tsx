@@ -2,7 +2,7 @@ import { Variants, motion, useMotionValue, useMotionValueEvent, useScroll, useTr
 import styled from "styled-components";
 
 const arrowVariants: Variants = {
-	start: { fill: "rgba(255, 255, 255, 0.3);", y: 15 },
+	start: { fill: "rgba(255, 255, 255, 0.3)", y: 15 },
 	end: {
 		fill: "rgba(255, 255, 255, 0.7)",
 		y: 0,
@@ -19,13 +19,13 @@ const MotionValues = () => {
 		xInput,
 		[
 			"linear-gradient(90deg,##5B63FB 0%,##45E9AD 100%)",
-			"linear-gradient(110deg,#9195A2 0%,#272839 100%)",
+			"linear-gradient(180deg,#9195A2 0%,#272839 100%)",
 			"linear-gradient(90deg,#FFDCA0 0%,#F66C6C 100%)"
 		]
 	);
   
 	console.log(x);
-	// 이 때 x가 바뀌어도 console.log가 계속해서 찍히지 않는데, motion value가 바뀌어도 컴포넌트가 리렌더링 되는 것이 아니기 때문이다.
+	// 이 때 컴포넌트 마운트 이후 x가 바뀌어도 console.log가 계속해서 찍히지 않는데, motion value가 바뀌어도 컴포넌트가 리렌더링 되는 것이 아니기 때문이다.
   
 	// 실제 motion value 요소 값의 변화를 확인하고 싶다면 useMotionValueEvent 훅을 사용
 	// useMotionValueEvent(x, "change", (el) => console.log(el));
@@ -36,7 +36,9 @@ const MotionValues = () => {
 
 	return (
 		<BackGround style={{ background: gradient }}>
-			<ProgressBar style={{ scaleX: scrollYProgress }} />
+			<ProgressBar
+				style={{ scaleX: scrollYProgress }}
+			/>
 			<Container>
 				<Box
 					drag="x"
@@ -74,9 +76,10 @@ const BackGround = styled(motion.div)`
 `;
 
 const ProgressBar = styled(motion.div)`
-	width: 100vw;
+	width: 100%;
 	position: fixed;
 	top: 0;
+	left: 0;
 	height: 10px;
 	background-color: #43bf85;
 	transform-origin: 0%;
@@ -131,6 +134,6 @@ const TouchDownTextContainer = styled.div`
     margin: 0;
     padding: 1rem;
     font-size: 1.5rem;
-		color: #fff;
+		color: #485067;
   }
 `;

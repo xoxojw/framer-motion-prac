@@ -12,8 +12,15 @@ const GlobalStyle = createGlobalStyle`
   ${reset}
   
   body {
-    overflow-x: hidden;
+    width: 100vw;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background: linear-gradient(135deg,#9195a2,#272839);
+
+    overflow-x: hidden;
   }
 `
 
